@@ -8,6 +8,8 @@
 
 void shell_run(void);
 
+int numcount(char *line);
+
 char *get_command();
 
 char **tokenize_command(char *command);
