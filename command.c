@@ -67,6 +67,20 @@ int execute_command(char **args)
   pid_t pid, wpid;
   int status;
 
+  if (args[0] == NULL)
+  {
+    // nothing to run.
+    return 1;
+  }
+
+  for (int i = 0; i < num_builtins(); i++)
+  {
+    if (strcmp(args[0], builtin_str[i]) == 0)
+    {
+      return (*builtin_func[i])(args);
+    }
+  }
+
   pid = fork();
   if (pid == 0)
   {

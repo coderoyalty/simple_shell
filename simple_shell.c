@@ -14,13 +14,6 @@ void shell_run(void)
 
         command = get_command();
 
-        if (numcount(command) == 0)
-        {
-            if (command)
-                free(command);
-            continue;
-        }
-
         tokens = tokenize_command(command);
 
         if (strcmp(tokens[0], "exit") == 0)
