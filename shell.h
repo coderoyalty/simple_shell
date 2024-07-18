@@ -8,9 +8,10 @@
 
 void shell_run(void);
 
-char* get_command();
+char *get_command();
 
-char** tokenize_command(char *command);
+char **tokenize_command(char *command);
 
+int execute_command(char **args);
 
 #endif
