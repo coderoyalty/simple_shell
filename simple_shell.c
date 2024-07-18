@@ -8,9 +8,13 @@ void shell_run(void)
     int exit_status = 1;
     int i = 0;
 
+    char wdir[2048];
+
     do
     {
-        printf("#aksh$ ");
+        memset(wdir, 0, sizeof(wdir));
+        getcwd(wdir, sizeof(wdir));
+        printf("#aksh:%s$ ", wdir);
 
         command = get_command();
 
